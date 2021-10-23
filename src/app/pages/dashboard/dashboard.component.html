@@ -1,0 +1,38 @@
+<div class="container" *ngIf="!loading">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Season</th>
+          <th>Driver</th>
+          <th>Points</th>
+          <th>Constructors name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let driver of worldChampions"
+          (click)="openYear(driver.season)"
+        >
+          <td>
+            {{ driver.season }}
+          </td>
+          <td>
+            {{ driver.DriverStandings[0].Driver.givenName }}
+            {{ driver.DriverStandings[0].Driver.familyName }}
+          </td>
+          <td>
+            {{ driver.DriverStandings[0].points }}
+          </td>
+          <td>
+            {{ driver.DriverStandings[0].Constructors[0].name }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="loading">
+  <loader></loader>
+</div>
