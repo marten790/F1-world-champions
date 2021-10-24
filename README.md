@@ -39,4 +39,4 @@ Initial API call can be stored in localStorage to allow faster future loading.
 
 ## Wireframes
 
-![Inital wireframe for a starting point](./src/assets/wireframe.jpg)
+![Inital wireframe for a starting point](/src/assets/wireframe.jpg)
