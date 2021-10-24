@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'banner',
@@ -8,8 +9,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BannerComponent implements OnInit {
   @Input() title: string;
   @Input() description: string;
+  public route: string;
+  constructor(private router: Router) {}
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route = this.router.url;
+  }
 }

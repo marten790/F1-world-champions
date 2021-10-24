@@ -1,8 +1,8 @@
 export interface DriverStandingsResponse {
-  MRData: QueryInfo;
+  MRData: MRData;
 }
 
-interface QueryInfo {
+interface MRData {
   xmlns: string;
   series: string;
   url: string;
@@ -13,15 +13,14 @@ interface QueryInfo {
 }
 
 interface StandingsTable {
-  season: string;
   driverStandings: string;
-  StandingsLists: [StandingsLists];
+  StandingsLists: StandingsLists[];
 }
 
 export interface StandingsLists {
   season: string;
   round: string;
-  DriverStandings: [DriverStandings];
+  DriverStandings: DriverStandings[];
 }
 
 interface DriverStandings {
@@ -30,7 +29,7 @@ interface DriverStandings {
   points: string;
   wins: string;
   Driver: Driver;
-  Constructors: [Constructors];
+  Constructors: Constructors[];
 }
 
 interface Driver {

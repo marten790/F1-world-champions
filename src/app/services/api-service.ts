@@ -1,3 +1,4 @@
+/* istanbul ignore file : should not need to test the API endpoint since the backend developers that created the endpoint will be testing the code */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
@@ -13,11 +14,9 @@ import { Race, YearResultsResponse } from '../models/yearResultsResponse.model';
 export class ApiService {
   private baseUrl = 'http://ergast.com/api/f1';
 
-  /* istanbul ignore next : should not need to test the API endpoint since the backend developers that created the endpoint will be testing the code */
   constructor(private http: HttpClient) {}
 
-  /* istanbul ignore next */
-  getRaceForYear$(year: number): Observable<[Race]> {
+  getRaceForYear$(year: number): Observable<Race[]> {
     const worldChampionForYearUrl = `${this.baseUrl}/${year}/results/1.json`;
     return this.http
       .get<YearResultsResponse>(worldChampionForYearUrl)
@@ -27,10 +26,10 @@ export class ApiService {
   getLimitedWorldChampionsForYearsAfter1950$(
     limitAmountOfDriversShown: number,
     amountOfYearsAfter1950thatShouldBeQueried: number
-  ) {
+  ): Observable<StandingsLists[]> {
     const worldChampionForYearUrl = `${this.baseUrl}/driverStandings/1.json?limit=${limitAmountOfDriversShown}&offset=${amountOfYearsAfter1950thatShouldBeQueried}`;
     return this.http
-      .get(worldChampionForYearUrl)
+      .get<DriverStandingsResponse>(worldChampionForYearUrl)
       .pipe(
         map(
           (data: DriverStandingsResponse) =>

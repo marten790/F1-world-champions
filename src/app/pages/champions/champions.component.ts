@@ -19,17 +19,12 @@ export class ChampionsComponent implements OnInit {
       .getLimitedWorldChampionsForYearsAfter1950$(16, 55)
       .subscribe(
         (response) => {
-          console.log(
-            'getLimitedWorldChampionsForYearsAfter1950 response',
-            JSON.stringify(response)
-          );
           this.worldChampions = response;
           this.loading = false;
         },
-        (error) => {
+        () => {
           this.worldChampions = null;
           this.loading = false;
-          console.log('error', error);
         }
       );
   }

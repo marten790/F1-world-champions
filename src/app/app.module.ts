@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChampionsComponent } from './pages/champions/champions.component';
-import { AboutComponent } from './pages/about/about.component';
 import { BannerComponent } from './shared/banner/banner.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { WinnersYearComponent } from './pages/winners-year/winners-year.component';
@@ -17,7 +16,6 @@ import { WinnersYearComponent } from './pages/winners-year/winners-year.componen
   declarations: [
     AppComponent,
     ChampionsComponent,
-    AboutComponent,
     BannerComponent,
     LoaderComponent,
     WinnersYearComponent,

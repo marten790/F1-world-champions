@@ -1,4 +1,6 @@
-export const mockRaceForYearResponseData = {
+import { YearResultsResponse } from '../models/yearResultsResponse.model';
+
+export const mockRaceForYearResponseData: YearResultsResponse = {
   MRData: {
     xmlns: 'http://ergast.com/mrd/1.4',
     series: 'f1',

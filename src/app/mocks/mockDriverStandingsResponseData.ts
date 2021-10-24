@@ -1,4 +1,9 @@
-export const mockDriverStandingsResponseData = {
+import {
+  DriverStandingsResponse,
+  StandingsLists,
+} from '../models/driverStandingsResponse.model';
+
+export const mockDriverStandingsResponseData: DriverStandingsResponse = {
   MRData: {
     xmlns: 'http://ergast.com/mrd/1.4',
     series: 'f1',
@@ -494,7 +499,7 @@ export const mockDriverStandingsResponseData = {
   },
 };
 
-export const mockDriverStandingsResultsResponseData = {
+export const mockDriverStandingsResultsResponseData: StandingsLists = {
   season: '2005',
   round: '19',
   DriverStandings: [

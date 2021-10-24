@@ -11,7 +11,7 @@ import { Race } from 'src/app/models/yearResultsResponse.model';
 export class WinnersYearComponent implements OnInit {
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
-  public racesResultsForYear: [Race];
+  public racesResultsForYear: Race[];
   public loading: boolean = true;
   public season: string;
   public permanentNumber: string;
@@ -20,21 +20,19 @@ export class WinnersYearComponent implements OnInit {
     '* All blue highlighted rows indicate champion of the year';
 
   ngOnInit() {
-    this.route.paramMap.subscribe((paramMap) => {
-      this.season = paramMap.get('season');
-      this.permanentNumber = paramMap.get('permanentNumber');
+    this.route.params.subscribe((paramMap) => {
+      this.season = paramMap.season;
+      this.permanentNumber = paramMap.permanentNumber;
 
       this.apiService.getRaceForYear$(Number(this.season)).subscribe(
         (response) => {
-          console.log('getRaceForYear response', JSON.stringify(response));
           this.title = `F1 race winners for ${this.season}`;
           this.racesResultsForYear = response;
           this.loading = false;
         },
-        (error) => {
+        () => {
           this.racesResultsForYear = null;
           this.loading = false;
-          console.log('error', error);
         }
       );
     });
