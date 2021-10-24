@@ -37,6 +37,6 @@ Initial API call can be stored in localStorage to allow faster future loading.
 - Decided to not make the year winners page a routing child for champions page because it doesnt seem to have a logical place as a child so I made it a page of its own. `champions/winners/{year}` doesnt make sense
 - If champoins page results are in localStorage you can avoid route checking for winner to highligh table row when required.
 
-## Wireframes
+## Wireframe during initial planning
 
 ![Inital wireframe for a starting point](/src/assets/wireframe.JPG)
