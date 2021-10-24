@@ -3,3 +3,8 @@ tbody tr:hover,
   cursor: pointer;
   background-color: rgba(0, 175, 239, 0.1);
 }
+@media screen and (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+}

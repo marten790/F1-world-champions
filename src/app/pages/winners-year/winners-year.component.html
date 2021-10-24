@@ -1,0 +1,60 @@
+<banner
+  [title]="title"
+  [description]="description"
+  *ngIf="!loading && racesResultsForYear"
+></banner>
+<div class="container" *ngIf="!loading && racesResultsForYear">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="hidden-mobile">Round</th>
+          <th scope="col">Driver</th>
+          <th scope="col">Race name</th>
+          <th scope="col" class="hidden-mobile">Circuit name</th>
+          <th scope="col" class="hidden-mobile">Laps</th>
+          <th scope="col" class="hidden-mobile">Time</th>
+          <th scope="col" class="hidden-mobile">Constructors name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let raceRound of racesResultsForYear; let i = index"
+          [ngClass]="{
+            'winner-of-the-year':
+              raceRound.Results[0].Driver.permanentNumber == permanentNumber
+          }"
+        >
+          <th scope="row" class="hidden-mobile">{{ raceRound.round }}</th>
+          <td>
+            {{ raceRound.Results[0].Driver.givenName }}
+            {{ raceRound.Results[0].Driver.familyName }}
+          </td>
+          <td>
+            {{ raceRound.raceName }}
+          </td>
+          <td class="hidden-mobile">
+            {{ raceRound.Circuit.circuitName }}
+          </td>
+          <td class="hidden-mobile">
+            {{ raceRound.Results[0].laps }}
+          </td>
+          <td class="hidden-mobile">
+            {{ raceRound.Results[0].Time.time }}
+          </td>
+          <td class="hidden-mobile">
+            {{ raceRound.Results[0].Constructor.name }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="!loading && !racesResultsForYear">
+  <div class="text-center pt-5">No data found. Please try again later</div>
+</div>
+
+<div *ngIf="loading">
+  <loader></loader>
+</div>

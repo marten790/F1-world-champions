@@ -1,0 +1,9 @@
+.winner-of-the-year,
+.winner-of-the-year:nth-of-type(odd) {
+  background-color: rgba(0, 175, 239, 0.2);
+}
+@media screen and (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
