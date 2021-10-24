@@ -1,7 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { of } from 'rxjs/internal/observable/of';
 import { mockRaceForYearResponseData } from 'src/app/mocks/mockRaceForYearResponseData';
 import { ApiService } from 'src/app/services/api-service';
@@ -54,6 +54,7 @@ describe('WinnersYearComponent', () => {
     );
     expect(component.loading).toBe(false);
   });
+
   it('Should make winner call for winners from chosen year and fail', () => {
     apiServiceSpy.getRaceForYear$.and.returnValue(
       throwError(new Error('oops!'))

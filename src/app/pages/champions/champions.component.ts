@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/services/api-service';
 export class ChampionsComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
-  public worldChampions;
+  public worldChampions: StandingsLists[];
   public loading: boolean = true;
   public title = 'F1 world champions since 2005';
 

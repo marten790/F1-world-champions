@@ -1,7 +1,7 @@
 /* istanbul ignore file : should not need to test the API endpoint since the backend developers that created the endpoint will be testing the code */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   StandingsLists,
   DriverStandingsResponse,

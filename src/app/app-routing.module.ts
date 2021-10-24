@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+import { Routes, RouterModule } from '@angular/router';
 import { ChampionsComponent } from './pages/champions/champions.component';
 import { WinnersYearComponent } from './pages/winners-year/winners-year.component';
 
