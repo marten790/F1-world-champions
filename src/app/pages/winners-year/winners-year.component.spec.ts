@@ -1,5 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api-service';
 
@@ -10,7 +10,7 @@ describe('WinnersYearComponent', () => {
   let fixture: ComponentFixture<WinnersYearComponent>;
   let apiServiceSpy: jasmine.SpyObj<ApiService>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [WinnersYearComponent],
       providers: [
