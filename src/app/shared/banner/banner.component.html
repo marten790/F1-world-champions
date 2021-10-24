@@ -1,17 +1,33 @@
 <div class="primary-banner">
   <div class="container">
     <div class="row align-items-center">
-      <div class="primary-logo text-hide col-auto col-sm mx-auto">
+      <div
+        class="
+          primary-logo
+          text-hide
+          col-auto col-sm
+          mx-auto
+          link-without-style
+        "
+        [routerLink]="['/']"
+      >
         Mobiquity
       </div>
-      <span class="col-auto col-sm mx-auto p-2"> Dashboard | About </span>
+      <span
+        *ngIf="route != '/'"
+        routerLink="/"
+        class="col-auto col-sm mx-auto p-2 text-right link-without-style"
+      >
+        Return to dashboard
+      </span>
     </div>
   </div>
 </div>
 <div class="secondary-banner">
   <div class="container">
-    <div class="row secondary-banner__height">
-      <h3 class="col-auto my-auto">F1 world champions since 2005</h3>
+    <div class="row secondary-banner__height pt-4 pb-4">
+      <h3 class="col-auto my-auto col-sm">{{ title }}</h3>
+      <span class="col-auto my-auto col-sm text-right">{{ description }}</span>
     </div>
   </div>
 </div>
