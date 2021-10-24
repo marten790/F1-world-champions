@@ -21,7 +21,7 @@ interface StandingsTable {
 export interface StandingsLists {
   season: string;
   round: string;
-  DriverStandings: DriverStandings;
+  DriverStandings: [DriverStandings];
 }
 
 interface DriverStandings {
@@ -30,7 +30,7 @@ interface DriverStandings {
   points: string;
   wins: string;
   Driver: Driver;
-  Constructors: Constructors;
+  Constructors: [Constructors];
 }
 
 interface Driver {

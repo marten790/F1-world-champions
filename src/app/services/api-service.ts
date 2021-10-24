@@ -6,6 +6,7 @@ import {
   DriverStandingsResponse,
 } from '../models/driverStandingsResponse.model';
 import { map } from 'rxjs/operators';
+import { Race, YearResultsResponse } from '../models/yearResultsResponse.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,28 +17,20 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   /* istanbul ignore next */
-  getWorldChampionForYear$(year: number): Observable<DriverStandingsResponse> {
-    const worldChampionForYearUrl = `${this.baseUrl}/${year}/driverStandings/1.json?limit=1`;
-    return this.http.get<DriverStandingsResponse>(worldChampionForYearUrl);
-  }
-  getWorldChampionForYearFiltered$(year: number): Observable<StandingsLists> {
-    const worldChampionForYearUrl = `${this.baseUrl}/${year}/driverStandings/1.json?limit=1`;
+  getRaceForYear$(year: number): Observable<[Race]> {
+    const worldChampionForYearUrl = `${this.baseUrl}/${year}/results/1.json`;
     return this.http
-      .get<DriverStandingsResponse>(worldChampionForYearUrl)
-      .pipe(
-        map(
-          (data: DriverStandingsResponse) =>
-            data.MRData.StandingsTable.StandingsLists[0]
-        )
-      );
+      .get<YearResultsResponse>(worldChampionForYearUrl)
+      .pipe(map((data: YearResultsResponse) => data.MRData.RaceTable.Races));
   }
+
   getLimitedWorldChampionsForYearsAfter1950$(
     limitAmountOfDriversShown: number,
     amountOfYearsAfter1950thatShouldBeQueried: number
-  ): Observable<[StandingsLists]> {
+  ) {
     const worldChampionForYearUrl = `${this.baseUrl}/driverStandings/1.json?limit=${limitAmountOfDriversShown}&offset=${amountOfYearsAfter1950thatShouldBeQueried}`;
     return this.http
-      .get<DriverStandingsResponse>(worldChampionForYearUrl)
+      .get(worldChampionForYearUrl)
       .pipe(
         map(
           (data: DriverStandingsResponse) =>

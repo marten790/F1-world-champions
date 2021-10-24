@@ -1,18 +1,17 @@
 .primary-banner {
   background-color: black;
   color: white;
-}
-
-.primary-logo {
-  background-image: url("../../../assets/mobiquity-logo-white.png");
-  background-repeat: no-repeat;
-  min-width: 217px;
-  min-height: 48px;
+  .primary-logo {
+    background-image: url("../../../assets/mobiquity-logo-white.png");
+    background-repeat: no-repeat;
+    min-width: 217px;
+    min-height: 48px;
+  }
+  .link-without-style {
+    cursor: pointer;
+  }
 }
 
 .secondary-banner {
   background-color: whitesmoke;
-  &__height {
-    height: 100px;
-  }
 }

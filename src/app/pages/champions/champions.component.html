@@ -1,18 +1,24 @@
-<div class="container" *ngIf="!loading">
+<banner [title]="title"></banner>
+<div class="container" *ngIf="!loading && worldChampions">
   <div class="row">
     <table class="table table-striped">
       <thead>
         <tr>
           <th>Season</th>
           <th>Driver</th>
-          <th>Points</th>
-          <th>Constructors name</th>
+          <th class="hidden-mobile">Points</th>
+          <th class="hidden-mobile">Constructors name</th>
         </tr>
       </thead>
       <tbody>
         <tr
           *ngFor="let driver of worldChampions"
-          (click)="openYear(driver.season)"
+          [routerLink]="[
+            '/winners',
+            driver.season,
+            'champion',
+            driver.DriverStandings[0].Driver.permanentNumber
+          ]"
         >
           <td>
             {{ driver.season }}
@@ -21,16 +27,20 @@
             {{ driver.DriverStandings[0].Driver.givenName }}
             {{ driver.DriverStandings[0].Driver.familyName }}
           </td>
-          <td>
+          <td class="hidden-mobile">
             {{ driver.DriverStandings[0].points }}
           </td>
-          <td>
+          <td class="hidden-mobile">
             {{ driver.DriverStandings[0].Constructors[0].name }}
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+</div>
+
+<div *ngIf="!loading && !worldChampions">
+  <div class="text-center pt-5">No data found. Please try again later</div>
 </div>
 
 <div *ngIf="loading">
